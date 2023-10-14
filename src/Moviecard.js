@@ -2,27 +2,38 @@ import {Component} from "react";
 
 
 class MovieCard extends Component{
+    constructor (){
+        super();
+        this.state = {
+            title: "The Avengers",
+            plot:"Super Natural movie with super hero",
+            price:"199",
+            rating:"8.9",
+        }
+        // this.addStars=this.addStars.bind(this);
+    }
+    addStars = () =>{
+        console.log("this:",this);
+    }
     render(){
+        const{title,plot,price,rating} = this.state;
         return(
             <div className="main">
 
-                {/**Movie Card */}
                 <div className="movie-card">
 
-                    {/**Left section of Movie Card */}
+                    
                     <div className="left">
                         <img alt="poster" src='https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg' />
                     </div>
                     
-                    {/**Right section Movie Card */}
                     <div className="right">
 
                         {/**Title, plot, price of the movie */}
-                        <div className="title">The Avengers</div>
-                        <div className="plot">Earth's mightiest heroes must come together and learn to fight as a team if they are going to stop the mischievous Loki and his alien army from enslaving humanity.</div>
-                        <div className="price">Rs. 199</div>
+                        <div className="title">{this.state.title}</div>
+                        <div className="plot">{plot}</div>
+                        <div className="price">Rs.{price}</div>
 
-                        {/**Footer starts here with ratings, stars and buttons */}
                         <div className="footer">
                             <div className="rating">8.5</div>
 
@@ -39,7 +50,7 @@ class MovieCard extends Component{
                                 <img className="str-btn" 
                                     alt="increase" 
                                     src="https://cdn-icons-png.flaticon.com/128/2997/2997933.png" 
-                                />
+                                 onClick={this.addStars}/>
                                 <span className="starCount">0</span>
                             </div>
 
